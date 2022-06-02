@@ -1,5 +1,3 @@
-#include<locale>
-
 class Solution {
 public:
     bool isDigit(string x) {
