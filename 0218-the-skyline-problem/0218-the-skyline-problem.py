@@ -13,8 +13,6 @@ class Solution:
             top = queue.get()
             top = (top[0], -top[1], top[2])
             
-            print(current, top)
-            
             if current[2] < top[0]:
                 ans.append([current[2], 0])
                 ans.append([top[0], top[1]])
@@ -35,7 +33,6 @@ class Solution:
                 current = top
             else:
                 current = (current[0], current[1], max(current[2], top[2]))
-        ans.append([current[2], 0])   
+        
+        ans.append([current[2], 0])
         return ans
-        
-        
