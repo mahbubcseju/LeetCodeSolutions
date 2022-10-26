@@ -12,14 +12,17 @@ class Solution:
             for j in range(m):
                 for l in range(k):
                     dp[flag][j][l] = 0
+                grid[i][j] %= k
                 for l in range(k):
-                    p = (l + grid[i][j]) % k
-                    dp[flag][j][p] = (dp[flag^1][j][l] + dp[flag][j][p])
+                    p = (l + grid[i][j])
+                    if p >= k:
+                        p -= k
+                    dp[flag][j][p] = dp[flag^1][j][l] + dp[flag][j][p]
                     if dp[flag][j][p] >= mod:
                         dp[flag][j][p] -= mod
                     if j > 0:
-                        dp[flag][j][p] = (dp[flag][j-1][l] + dp[flag][j][p]) % mod
-                    if dp[flag][j][p] >= mod:
-                        dp[flag][j][p] -= mod
+                        dp[flag][j][p] = dp[flag][j-1][l] + dp[flag][j][p]
+                        if dp[flag][j][p] >= mod:
+                            dp[flag][j][p] -= mod
         
         return dp[flag][m-1][0]
