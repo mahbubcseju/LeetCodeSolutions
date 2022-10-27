@@ -24,5 +24,3 @@ class Solution:
                     dp[x][y] = max(dp[x][y], 1 + dp[x2][y2])
         
         return max([j  for x in dp for j in x])
-                    
-            
