@@ -45,4 +45,3 @@ class Solution:
                 ans.append(word)
         
         return ans
-                    
